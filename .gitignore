@@ -8,5 +8,8 @@ package-lock.json
 # Environment
 .env
 
+# Build
+dist
+
 # MISC
 .DS_Store
