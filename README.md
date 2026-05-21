@@ -126,10 +126,28 @@ Response `200`:
 ]
 ```
 
+## Testes
+
+O projeto possui testes unitários (use cases com repositório in-memory) e testes e2e (endpoints com supertest + MongoDB).
+
+```bash
+# Rodar todos os testes
+npm test
+
+# Apenas testes unitários (não precisa de MongoDB)
+npm run test:unit
+
+# Apenas testes e2e (precisa de MongoDB rodando)
+npm run test:e2e
+```
+
 ## Scripts
 
-| Comando         | Descrição                        |
-|-----------------|----------------------------------|
-| `npm run dev`   | Roda em modo desenvolvimento     |
-| `npm run build` | Compila TypeScript para `dist/`  |
-| `npm start`     | Roda a versão compilada          |
+| Comando            | Descrição                        |
+|--------------------|----------------------------------|
+| `npm run dev`      | Roda em modo desenvolvimento     |
+| `npm run build`    | Compila TypeScript para `dist/`  |
+| `npm start`        | Roda a versão compilada          |
+| `npm test`         | Roda todos os testes             |
+| `npm run test:unit`| Roda testes unitários            |
+| `npm run test:e2e` | Roda testes e2e                  |
