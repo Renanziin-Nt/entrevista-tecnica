@@ -19,9 +19,14 @@ export class MenuController {
       return;
     }
     const { name, relatedId } = validation.data;
-    const result = await createMenuItem.execute(name, relatedId ?? null);
-    const response: CreateMenuItemResponseDTO = { id: result.id };
-    res.status(201).json(response);
+    try {
+      const result = await createMenuItem.execute(name, relatedId ?? null);
+      const response: CreateMenuItemResponseDTO = { id: result.id };
+      res.status(201).json(response);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Internal error";
+      res.status(400).json({ error: message });
+    }
   }
 
   async delete(req: Request, res: Response): Promise<void> {
